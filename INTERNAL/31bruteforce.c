@@ -7,7 +7,7 @@ int bf(char *str, char *pattern){
     int i,j;
     for (i = 0; i <= str_len - pat_len; i++) {
         for (j = 0; j < pat_len; j++) {
-            if (str[i + j] != pattern[j]) {
+            if (str[i + j]!= pattern[j]) {
                 break;
             }
         }
@@ -17,24 +17,15 @@ int bf(char *str, char *pattern){
     }
     return -1; // No match found
 }
-
 int main(){
-    char str[100];
-    char pattern[100];
-
-    printf("Enter the String: ");
-    fgets(str, sizeof(str), stdin);
-    str[strcspn(str, "\n")] = 0;
-
-    printf("Enter the pattern to search for: ");
-    fgets(pattern, sizeof(pattern), stdin);
-    pattern[strcspn(pattern, "\n")] = 0;
+    char str[100] = "Hello World";
+    char pattern[100] = "World";
 
     int idx = bf(str, pattern);
-    if(idx != -1){
+    if(idx!= -1){
         printf("Pattern is found at: %d", idx);
     } else {
         printf("Pattern Not Found!");
-}
-return 0;
+    }
+    return 0;
 }
